@@ -1,4 +1,4 @@
-import itertools
+mport itertools
 import pyaudio
 import wave
 import sys
@@ -17,6 +17,8 @@ stream = p.open(format=FORMAT,
                 rate=RATE,
                 input=True,
                 frames_per_buffer=chunk)
+
+print "* recording"
 
 from matplotlib import pyplot
 pyplot.ion()
@@ -47,9 +49,11 @@ for i in itertools.count():
     fft = np.fft.rfft(data)
     ax2.clear()
     #print np.shape(fft)
-    #t = np.linspace(0, 44100/2, chunk/2+1)
-    ax2.plot(fft)
+    t = np.linspace(0, RATE/2, (chunk/2)+1)
+    ax2.plot(t, fft)
     f2.canvas.draw()
+
+print "* done recording"
 
 stream.close()
 p.terminate()
