@@ -1,7 +1,5 @@
 import itertools
 import pyaudio
-import wave
-import sys
 import numpy as np
 import time
 chunk = 1024

@@ -1,7 +1,5 @@
 import itertools
 import pyaudio
-import wave
-import sys
 import numpy as np
 chunk = 1024
 FORMAT = pyaudio.paInt16
